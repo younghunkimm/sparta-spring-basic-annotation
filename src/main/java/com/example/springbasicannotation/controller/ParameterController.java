@@ -16,19 +16,19 @@ public class ParameterController {
 //    }
 
     // headers 속성값 추가
-    @PostMapping(value = "/users", headers = "Content-Type=application/json")
-    public String headers() {
-        // logic
-        String result = "headers API가 호출 되었습니다.";
-        return result;
-    }
-
-    // headers 속성값 추가
-//    @PostMapping(value = "/users", consumes = "application/json") // MediaType.APPLICATION_JSON_VALUE
-//    public String consumes() {
+//    @PostMapping(value = "/users", headers = "Content-Type=application/json")
+//    public String headers() {
 //        // logic
-//        String result = "consumes API가 호출 되었습니다.";
+//        String result = "headers API가 호출 되었습니다.";
 //        return result;
 //    }
+
+    // headers 속성값 추가
+    @PostMapping(value = "/users", consumes = "application/json") // MediaType.APPLICATION_JSON_VALUE
+    public String consumes() {
+        // logic
+        String result = "consumes API가 호출 되었습니다.";
+        return result;
+    }
 
 }
