@@ -3,6 +3,7 @@ package com.example.springbasicannotation.controller;
 import org.springframework.web.bind.annotation.*;
 
 // 응답 데이터를 반환한다.
+//@RequestMapping("/prefix")
 @RestController
 public class RequestMappingController {
 
@@ -40,6 +41,13 @@ public class RequestMappingController {
 //
 //    @DeleteMapping(value = "/v2")
 //    public String exampleV2() {
+//        // logic
+//        return "this is sparta!";
+//    }
+
+//    // Post, GET, Put, Patch, Delete 모두 가능
+//    @GetMapping(value = "/v3")
+//    public String exampleV3() {
 //        // logic
 //        return "this is sparta!";
 //    }
