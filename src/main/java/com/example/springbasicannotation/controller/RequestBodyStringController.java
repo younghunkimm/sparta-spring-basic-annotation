@@ -4,13 +4,13 @@ import jakarta.servlet.ServletInputStream;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -55,13 +55,26 @@ public class RequestBodyStringController {
     }
 
     @PostMapping("/v4/request-body-text")
-    public HttpEntity<String> requestBodyTextV3(RequestEntity<String> httpEntity) {
+    public HttpEntity<String> requestBodyTextV4(RequestEntity<String> httpEntity) {
 
         // HttpMessageConverter가 동작해서 아래 코드가 동작하게됨
         String body = httpEntity.getBody();
         // url, method 사용 가능
 
         return new ResponseEntity<>("response = " + body, HttpStatus.CREATED); // Body Data, 상태코드
+    }
+
+    @ResponseBody
+    @PostMapping("/v5/request-body-text")
+    public String requestBodyTextV5(
+            @RequestBody String body,
+            @RequestHeader HttpHeaders headers
+    ) {
+
+        // HttpMessageConverter가 동작해서 아래 코드가 동작하게됨
+        String bodyMessage = body;
+
+        return "request header = " + headers + " response body = " + bodyMessage;
     }
 
 }
