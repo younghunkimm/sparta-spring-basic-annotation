@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class ModelAttributeController {
 
     @ResponseBody
-    @RequestMapping("/v1/tutor")
+    @PostMapping("/v1/tutor")
     public String requestParamV1(
             @RequestParam String name,
             @RequestParam int age
@@ -22,7 +22,7 @@ public class ModelAttributeController {
     }
 
     @ResponseBody
-    @RequestMapping("/v2/tutor")
+    @PostMapping("/v2/tutor")
     public String modelAttributeV2(
             @ModelAttribute Tutor tutor
     ) {
@@ -34,7 +34,7 @@ public class ModelAttributeController {
     }
 
     @ResponseBody
-    @GetMapping("/v3/tutor")
+    @PostMapping("/v3/tutor")
     public String modelAttributeV3(Tutor tutor) {
 
         String name = tutor.getName();
@@ -44,7 +44,7 @@ public class ModelAttributeController {
     }
 
     @ResponseBody
-    @GetMapping("/v4/tutor")
+    @PostMapping("/v4/tutor")
     public String requestParamV2(
             String name,
             int age
