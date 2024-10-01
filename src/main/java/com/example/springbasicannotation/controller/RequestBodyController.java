@@ -33,7 +33,7 @@ public class RequestBodyController {
 
         Board board = objectMapper.readValue(messageBody, Board.class);
 
-        log.info("board.getTitle()={}, board.getContent()", board.getTitle(), board.getContent());
+        log.info("board.getTitle()={}, board.getContent()={}", board.getTitle(), board.getContent());
 
         response.getWriter().write("success");
 
