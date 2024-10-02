@@ -15,12 +15,6 @@ public class ViewTemplateController {
         return "thymeleaf-view";
     }
 
-    @ResponseBody // @RestController = @Controller + @ResponseBody
-    @RequestMapping("/response-body")
-    public String responseBody() {
-        return "thymeleaf-view";
-    }
-
     // thymeleaf-view.html 과 Mapping된다.
     @RequestMapping("/thymeleaf-view")
     public void responseViewV2(Model model) {
