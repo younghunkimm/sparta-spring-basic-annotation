@@ -33,6 +33,7 @@ public class JsonController {
         // String requestBody를 ObjectMapper를 사용하여 변환 "{\"name\":\"wonuk\", \"age\":10}"
         Tutor tutor = objectMapper.readValue(requestBody, Tutor.class);
 
+        response.getWriter().write("tutor" + tutor);
     }
 
     @PostMapping("/v2/request-body-json")
