@@ -37,7 +37,7 @@ public class JsonController {
     }
 
     @PostMapping("/v2/request-body-json")
-    public String requesBodytJsonV2(@RequestBody String requestBody) throws IOException {
+    public String requesBodyJsonV2(@RequestBody String requestBody) throws IOException {
 
         Tutor tutor = objectMapper.readValue(requestBody, Tutor.class);
 
