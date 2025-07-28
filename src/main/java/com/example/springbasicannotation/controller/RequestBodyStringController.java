@@ -46,7 +46,7 @@ import java.nio.charset.StandardCharsets;
  *     </li>
  * </ul>
  */
-@Controller
+@Controller // @RestControll = @Controller + @ResponseBody
 public class RequestBodyStringController {
 
     /**
@@ -167,17 +167,56 @@ public class RequestBodyStringController {
         return new ResponseEntity<>("response = " + body, HttpStatus.CREATED); // Body Data, 상태코드 201
     }
 
+    /**
+     * <h2>@RequestBody, @ResponseBody</h2>
+     * <p>Spring에서 @RequestBody, @ResponseBody 어노테이션을 사용하면 각각 Request, Response 객체의 Body에 편하게 접근하여 사용할 수 있다.</p>
+     *
+     * <ul>
+     *     <li>
+     *         {@code @RequestBody}
+     *         <ul>
+     *             <li>요청 메세지 Body Data를 쉽게 조회할 수 있다.</li>
+     *         </ul>
+     *     </li>
+     *     <li>
+     *         {@code @RequestHeader}
+     *         <ul>
+     *             <li>요청 헤더 정보 조회</li>
+     *         </ul>
+     *     </li>
+     *     <li>
+     *         {@code @ResponseBody}
+     *         <ul>
+     *             <li>응답 메세지 바디에 값을 쉽게 담아서 전달할 수 있도록 해준다.</li>
+     *             <li>View가 아닌 <b>데이터를 반환</b>한다.</li>
+     *         </ul>
+     *     </li>
+     *     <li>
+     *         <b>요약</b>
+     *         <ol>
+     *             <li>
+     *                 요청 파라미터, HTML Form Data에 접근하는 경우
+     *                 <ul>
+     *                     <li>{@code @RequestParam}, {@code @ModelAttribute} 를 사용한다.</li>
+     *                 </ul>
+     *             </li>
+     *             <li>
+     *                 Http Message Body에 접근하는 경우
+     *                 <ul>
+     *                     <li>{@code @RequestBody} 를 사용한다. (<b>JSON</b>, XML, TEXT)</li>
+     *                 </ul>
+     *             </li>
+     *         </ol>
+     *     </li>
+     * </ul>
+     */
     @ResponseBody
     @PostMapping("/v5/request-body-text")
     public String requestBodyTextV5(
             @RequestBody String body,
             @RequestHeader HttpHeaders headers
     ) {
-
-        // HttpMessageConverter가 동작해서 아래 코드가 동작하게됨
-        String bodyMessage = body;
-
-        return "request header = " + headers + " response body = " + bodyMessage;
+        return "request header = " + headers + " response body = " + body;
     }
 
 }
