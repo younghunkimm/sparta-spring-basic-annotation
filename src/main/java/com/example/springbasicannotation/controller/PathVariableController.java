@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-// @RequestMapping("/posts/{postId}")
-@RequestMapping("/posts")
+@RequestMapping("/posts/{postId}")
+//@RequestMapping("/posts")
 @RestController
 public class PathVariableController {
     // postId로 된 post 단건 조회
@@ -25,23 +25,23 @@ public class PathVariableController {
 //        return result;
 //    }
 
-    @GetMapping("/{postId}/comments/{commentId}")
-    public String pathVariableV3(
-            @PathVariable Long postId,
-            @PathVariable Long commentId
-    ) {
-        // logic
-        String result = "PathvariableV3 결과입니다 postId : " + postId + "commentsId : " + commentId;
-        return result;
-    }
-//    @GetMapping("/comments/{commentId}")
-//    public String pathVariableV4(
+//    @GetMapping("/{postId}/comments/{commentId}")
+//    public String pathVariableV3(
 //            @PathVariable Long postId,
 //            @PathVariable Long commentId
 //    ) {
 //        // logic
-//        String result = "PathvariableV4 결과입니다 postId : " + postId + "commentsId : " + commentId;
+//        String result = "PathvariableV3 결과입니다 postId : " + postId + "commentsId : " + commentId;
 //        return result;
 //    }
+    @GetMapping("/comments/{commentId}")
+    public String pathVariableV4(
+            @PathVariable Long postId,
+            @PathVariable Long commentId
+    ) {
+        // logic
+        String result = "PathvariableV4 결과입니다 postId : " + postId + "commentsId : " + commentId;
+        return result;
+    }
 
 }
