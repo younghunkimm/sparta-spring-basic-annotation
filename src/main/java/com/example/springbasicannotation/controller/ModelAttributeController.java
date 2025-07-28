@@ -118,6 +118,13 @@ public class ModelAttributeController {
         return "tutor name = " + name + " age = " + age;
     }
 
+    /**
+     * <h2>{@code @ModelAttribute} 생략</h2>
+     *
+     * <ul>
+     *     <li>{@code @ModelAttribute}와 {@code @Requestparam}은 모두 생략이 가능하다.</li>
+     * </ul>
+     */
     @ResponseBody
     @PostMapping("/v3/tutor")
     public String modelAttributeV3(Tutor tutor) {
@@ -128,6 +135,17 @@ public class ModelAttributeController {
         return "tutor name = " + name + " age = " + age;
     }
 
+    /**
+     * <ul>
+     *     <li>
+     *         Spring에서는 {@code @RequestParam}이나 {@code @ModelAttribute}가 생략되면
+     *         <ul>
+     *             <li>{@code String}, {@code int}, {@code Integer}와 같은 기본 타입은 <b>{@code RequestParam}과 Mapping한다.</b></li>
+     *             <li><b>나머지 경우들(객체)은 모두 {@code ModelAttribute}와 Mapping한다.</b></li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     */
     @ResponseBody
     @PostMapping("/v4/tutor")
     public String requestParamV2(
