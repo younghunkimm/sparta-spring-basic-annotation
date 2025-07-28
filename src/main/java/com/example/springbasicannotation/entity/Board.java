@@ -7,8 +7,8 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@AllArgsConstructor // 모든 필드를 가진 생성자
+@NoArgsConstructor // 기본 생성자를 생성해주는 Lombok Annotation
 public class Board {
 
     private String title;
