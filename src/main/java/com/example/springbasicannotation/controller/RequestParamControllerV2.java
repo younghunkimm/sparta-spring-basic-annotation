@@ -122,6 +122,23 @@ public class RequestParamControllerV2 {
         return "success";
     }
 
+    /**
+     * <p>{@code GET} http://localhost:8080/v5/request-param?name=sparta&age=10</p>
+     * <br>
+     * <h4>{@code default} 속성 적용</h4>
+     * <ul>
+     *     <li>파라미터의 기본 값을 설정한다.</li>
+     *     <li>
+     *         <p>name Parameter 의 값이 없으면 기본적으로 “sparta”으로 설정한다.</p>
+     *         <p>Ex1) {@code http://localhost:8080/v5/request-param?age=100}</p>
+     *         <p>Ex2) {@code http://localhost:8080/v5/request-param}</p>
+     *     </li>
+     *     <li>
+     *         <p><b>주의!</b> {@code defaultValue} 속성을 설정하게 되면 {@code ""} 빈 문자열의 경우에도 기본값이 설정된다.</p>
+     *         <p>Ex) {@code http://localhost:8080/v5/request-param?name&age}</p>
+     *     </li>
+     * </ul>
+     */
     @ResponseBody
     @GetMapping("/v5/request-param")
     public String requestParamV5(
