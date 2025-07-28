@@ -40,6 +40,22 @@ public class RequestParamController {
         response.getWriter().write("success");
     }
 
+    /**
+     * <h2><b>POST + HTML Form(x-www-form-urlencoded)</b></h2>
+     * <ul>
+     *     <li>HTTP Request Body에 쿼리 파라미터 형태로 전달하는 방법</li>
+     *     <li>
+     *         HTTP Request
+     *
+     *         <pre>{@code
+     *         POST /form-data
+     *         content-type: application/x-www-form-urlencoded
+     *
+     *         key1=value&key2=value2
+     *         }</pre>
+     *     </li>
+     * </ul>
+     */
     @PostMapping("/form-data")
     public void requestBody(
             HttpServletRequest request,
