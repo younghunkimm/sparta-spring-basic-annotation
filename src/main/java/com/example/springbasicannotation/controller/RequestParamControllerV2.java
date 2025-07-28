@@ -43,6 +43,18 @@ public class RequestParamControllerV2 {
         return "success";
     }
 
+    /**
+     * <h2>{@code @RequestParam} 사용법</h2>
+     * <p>{@code GET} http://localhost:8080/v3/request-param?name=sparta&age=10</p>
+     * <br>
+     * <h4>어노테이션, 속성값 모두 생략</h4>
+     * <ul>
+     *     <li>{@code @RequestParam}은 생략이 가능하다.</li>
+     *     <li>생략하면 {@code @requestParam(required=false)} 필수 여부 속성이 {@code default}로 설정된다.</li>
+     *     <li>단, 요청 파라미터와 이름이 완전히 같아야 한다.</li>
+     *     <li>단순 타입({@code int}, {@code String}, {@code Integer} 등) 이어야 한다.</li>
+     * </ul>
+     */
     @ResponseBody
     @GetMapping("/v3/request-param")
     public String requestParamV3(
