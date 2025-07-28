@@ -20,10 +20,23 @@ public class RequestHeaderController {
     public String headers(
             HttpServletRequest request, // Servlet에서 사용한것과 같음
             HttpServletResponse response, // Servlet에서 사용한것과 같음
+
+            // MultiValueMap 형태로 header의 정보들을 확인할 수 있다.
+            // MultiValueMap: Key가 여러 Value를 가질 수 있다.
             @RequestHeader MultiValueMap<String, String> headerMap,
+
+            // header의 정보 중 host의 정보만 가져온다.
             @RequestHeader("host") String host,
+
+            // header의 쿠키의 값을 가져온다.
+            // required가 true라면 항상 쿠키가 있어야 메서드가 실행된다.
             @CookieValue(value = "cookie", required = false) String cookie,
+
+            // 호출에 사용한 HttpMethod를 확인할 수 있다.
             HttpMethod httpMethod,
+
+            // 위치 정보를 나타내는 헤더이다.
+            // 우선순위가 존재한다.
             Locale locale
     ) {
         // Servlet
