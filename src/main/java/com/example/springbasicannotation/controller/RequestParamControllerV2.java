@@ -68,6 +68,47 @@ public class RequestParamControllerV2 {
         return "success";
     }
 
+    /**
+     * <p>{@code GET} http://localhost:8080/v4/request-param?name=sparta&age=10</p>
+     * <br>
+     * <h4>{@code required} 속성 설정</h4>
+     * <ul>
+     *     <li>파라미터의 필수 값을 설정한다.</li>
+     *     <li>API 스펙을 규정할 때 사용한다.</li>
+     *     <li>
+     *         {@code @RequestParam}을 사용하면 기본 Default값은 {@code True}이다
+     *         <ul>
+     *             <li>{@code True}로 설정된 파라미터 값이 요청에 존재하지 않으면 {@code 400 BadRequest}(클라이언트 측 에러)</li>
+     *         </ul>
+     *     </li>
+     *     <li>
+     *         {@code required = false} 설정이 되어있으면 해당 파라미터는 없어도 된다.
+     *         <ul>
+     *             <li>
+     *                 <b>주의!</b> {@code http://localhost:8080/v4/request-param?name=sparta} 요청한다면?
+     *                 <ul>
+     *                     <li>{@code 500 Error}가 발생한다.</li>
+     *                     <li>
+     *                         {@code int Type}에는 {@code null}을 넣을 수 없다. <b>0이라도 들어가야 한다.</b>
+     *                         <pre>{@code
+     *                         int a = null; // 💥 에러 발생
+     *                         Integer b = null;
+     *                         }</pre>
+     *                     </li>
+     *                 </ul>
+     *             </li>
+     *             <li>따라서 보통 {@code null}을 허용하는 <b>{@code Integer}</b>로 사용하거나 <b>{@code default} 옵션</b>을 사용한다.</li>
+     *         </ul>
+     *     </li>
+     *     <li>
+     *         파라미터 {@code key}값만 있고, {@code Value}가 없는 경우<br>
+     *         {@code http://localhost:8080/request-param?name=}
+     *         <ul>
+     *             <li>{@code null}과 빈 문자열 {@code ""}은 다르다!</li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     */
     @ResponseBody
     @GetMapping("/v4/request-param")
     public String requestParamV4(
