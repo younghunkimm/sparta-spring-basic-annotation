@@ -25,20 +25,21 @@ public class ParameterController {
 //    }
 
     // consumes 속성값 추가
-//    @PostMapping(value = "/users", consumes = "application/json")
-    @PostMapping(value = "/users", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public String consumes() {
-        // logic
-        String result = "consumes API가 호출 되었습니다.";
-        return result;
-    }
+////    @PostMapping(value = "/users", consumes = "application/json")
+//    @PostMapping(value = "/users", consumes = MediaType.APPLICATION_JSON_VALUE)
+//    public String consumes() {
+//        // logic
+//        String result = "consumes API가 호출 되었습니다.";
+//        return result;
+//    }
 
     // produces 속성값 추가
 //    @GetMapping(value = "/users", produces = "text/plain")
-//    public String produces() {
-//        // logic
-//        String result = "text/plain 데이터 응답";
-//        return result;
-//    }
+    @GetMapping(value = "/users", produces = MediaType.TEXT_PLAIN_VALUE)
+    public String produces() {
+        // logic
+        String result = "text/plain 데이터 응답";
+        return result;
+    }
 
 }
