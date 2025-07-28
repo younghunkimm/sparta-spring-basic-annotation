@@ -18,30 +18,30 @@ public class PathVariableController {
 //    }
 
     // 변수명과 같다면 속성값 생략가능
-    @GetMapping("/{postId}")
-    public String pathVariableV2(@PathVariable Long postId) {
-        // logic
-        String result = "PathvariableV2 결과입니다 : " + postId;
-        return result;
-    }
-
-//    @GetMapping("/{postId}/comments/{commentId}")
-//    public String pathVariableV3(
-//            @PathVariable Long postId,
-//            @PathVariable Long commentId
-//    ) {
+//    @GetMapping("/{postId}")
+//    public String pathVariableV2(@PathVariable Long postId) {
 //        // logic
-//        String result = "PathvariableV3 결과입니다 postId : " + postId + "commentsId : " + commentId;
+//        String result = "PathvariableV2 결과입니다 : " + postId;
 //        return result;
 //    }
-    @GetMapping("/comments/{commentId}")
-    public String pathVariableV4(
+
+    @GetMapping("/{postId}/comments/{commentId}")
+    public String pathVariableV3(
             @PathVariable Long postId,
             @PathVariable Long commentId
     ) {
         // logic
-        String result = "PathvariableV4 결과입니다 postId : " + postId + "commentsId : " + commentId;
+        String result = "PathvariableV3 결과입니다 postId : " + postId + "commentsId : " + commentId;
         return result;
     }
+//    @GetMapping("/comments/{commentId}")
+//    public String pathVariableV4(
+//            @PathVariable Long postId,
+//            @PathVariable Long commentId
+//    ) {
+//        // logic
+//        String result = "PathvariableV4 결과입니다 postId : " + postId + "commentsId : " + commentId;
+//        return result;
+//    }
 
 }
