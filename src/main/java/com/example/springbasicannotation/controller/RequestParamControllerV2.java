@@ -25,6 +25,12 @@ public class RequestParamControllerV2 {
         return "success";
     }
 
+    /**
+     * <p>{@code GET} http://localhost:8080/v2/request-param?name=sparta&age=100</p>
+     * <p>"속성값"과 변수명이 같으면 생략이 가능하다</p>
+     * @param name
+     * @param age
+     */
     @ResponseBody
     @GetMapping("/v2/request-param")
     public String requestParamV2(
