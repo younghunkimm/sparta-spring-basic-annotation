@@ -151,6 +151,19 @@ public class RequestParamControllerV2 {
         return "success";
     }
 
+    /**
+     * <p>{@code GET} http://localhost:8080/v6/request-param?name=sparta&age=100</p>
+     * <br>
+     * <h4>{@code Map} 사용</h4>
+     * <ul>
+     *     <li>{@code Parameter}를 {@code Map}형태로 조회가 가능하다.</li>
+     *     <li>{@code Map} 형태({@code key=value})로 조회가 가능하다.</li>
+     *     <li>
+     *         <p>{@code MultiValueMap} 형태({@code key=[value1, value2]})로 조회가 가능하다.</p>
+     *         <p>Ex) {@code http://localhost:8080/v6/request-param?name=sparta&name=wonuk&name=tutor&age=100}</p>
+     *     </li>
+     * </ul>
+     */
     @ResponseBody
     @GetMapping("/v6/request-param")
     public String requestParamV6(
