@@ -48,6 +48,7 @@ public class RequestParamControllerV2 {
      * <p>{@code GET} http://localhost:8080/v3/request-param?name=sparta&age=10</p>
      * <br>
      * <h4>어노테이션, 속성값 모두 생략</h4>
+     * <p><b>❗ 권장되지 않는 방식. 협업 시 다른 개발자들에게 혼동</b></p>
      * <ul>
      *     <li>{@code @RequestParam}은 생략이 가능하다.</li>
      *     <li>생략하면 {@code @requestParam(required=false)} 필수 여부 속성이 {@code default}로 설정된다.</li>
