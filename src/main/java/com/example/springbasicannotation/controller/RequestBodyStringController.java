@@ -110,6 +110,20 @@ public class RequestBodyStringController {
 
     }
 
+    /**
+     * <h2>HttpEntity 예시</h2>
+     * <br>
+     * <ul>
+     *     <li>{@code HttpEntity}를 사용하면 {@link HttpMessageConverter}를 사용한다.</li>
+     *     <li>
+     *         Spring의 {@link HttpMessageConverter} 덕분에 간편하게 Request Data에 접근할 수 있다.
+     *         <ol>
+     *             <li>{@code HttpEntity}를 사용하면 {@link HttpMessageConverter}가 동작하여 자동으로 매핑된다.</li>
+     *             <li>요청 뿐만이 아닌 응답까지 {@code HttpEntity} 하나만으로 사용이 가능해진다.</li>
+     *         </ol>
+     *     </li>
+     * </ul>
+     */
     @PostMapping("/v3/request-body-text")
     public HttpEntity<String> requestBodyTextV3(HttpEntity<String> httpEntity) {
 
