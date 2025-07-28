@@ -17,6 +17,34 @@ import java.io.InputStream;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * <h2>HTTP Message Body(요청)</h2>
+ * <ul>
+ *     <li>
+ *         이제부터 배울 내용은 HTTP Message Body에 직접적으로 Data가 전달되는 경우이다.
+ *         <ul>
+ *             <li>Request Body의 Data를 바인딩하는 방법이다.</li>
+ *         </ul>
+ *     </li>
+ *     <li>REST API에서 주로 사용하는 방식이다.</li>
+ *     <li>
+ *         HTTP Method POST, PUT, PATCH 에서 주로 사용한다.
+ *         <ul>
+ *             <li>GET은 Request Body가 존재할 수는 있지만 권장하지 않는다.</li>
+ *         </ul>
+ *     </li>
+ *     <li><b>JSON</b>, XML, TEXT 등을 데이터 형식으로 사용한다.</li>
+ *     <li>
+ *         HTTP Request, Response
+ *         <ul>
+ *             <li>
+ *                 <p>Server에서 Request로 전달받은 Data를 처리하기 위해서 바인딩 해야 한다.</p>
+ *                 <p>Ex) JSON -> Object</p>
+ *             </li>
+ *         </ul>
+ *     </li>
+ * </ul>
+ */
 @Controller
 public class RequestBodyStringController {
 
