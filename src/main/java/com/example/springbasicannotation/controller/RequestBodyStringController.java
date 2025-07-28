@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.*;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,6 +49,24 @@ import java.nio.charset.StandardCharsets;
 @Controller
 public class RequestBodyStringController {
 
+    /**
+     * <ul>
+     *     <li>HTTP Request Body에 Data가 전송되는 경우 {@link HttpMessageConverter}를 통해 바인딩된다.</li>
+     *     <li>현대에서는 Restful API를 주로 사용하고 있어서 대부분의 경우 <b>JSON</b> 형식으로 통신한다.</li>
+     * </ul>
+     * <br>
+     * <h2>HttpServletRequest 예시</h2>
+     * <ul>
+     *     <li>{@code request.getInputStream();}</li>
+     *     <li>
+     *         Postman
+     *         <ul>
+     *             <li>Request -> Body -> raw -> Text</li>
+     *         </ul>
+     *     </li>
+     *     <li>{@code Request Header Content-Type: text/plain}</li>
+     * </ul>
+     */
     @PostMapping("/v1/request-body-text")
     public void requestBodyTextV1(
             HttpServletRequest request,
