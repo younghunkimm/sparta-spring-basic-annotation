@@ -80,6 +80,24 @@ public class RequestBodyStringController {
 
     }
 
+    /**
+     * <h2>I/O 예시</h2>
+     * <br>
+     * <ul>
+     *     <li>
+     *         {@code InputStream(읽기)} 파라미터 지원
+     *         <ul>
+     *             <li>HTTP Request Body Data 직접 조회</li>
+     *         </ul>
+     *     </li>
+     *     <li>
+     *         {@code OutputStream(쓰기)} 파라미터 지원
+     *         <ul>
+     *             <li>HTTP Response Body 직접 결과 출력</li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     */
     @PostMapping("/v2/request-body-text")
     public void requestBodyTextV2(
             InputStream inputStream,
