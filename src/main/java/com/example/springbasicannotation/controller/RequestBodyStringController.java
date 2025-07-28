@@ -133,6 +133,30 @@ public class RequestBodyStringController {
         return new HttpEntity<>("response = " + body); // 매개변수 = Body Message
     }
 
+    /**
+     * <h2>HttpEntity란?</h2>
+     * <p>{@link HttpEntity}는 HTTP Header, Body 정보를 편리하게 조회할 수 있도록 만들어준다.</p>
+     *
+     * <ul>
+     *     <li>
+     *         HttpEntity 역할
+     *         <ol>
+     *             <li>Http Request Body Message를 직접 조회한다.</li>
+     *             <li>Request 뿐만 아니라 Response도 사용할 수 있도록 만들어준다.</li>
+     *             <li>Response Header 또한 사용할 수 있다.</li>
+     *             <li>Request Parameter를 조회하는 기능들과는 아무 관계가 없다.</li>
+     *             <li>View를 반환하지 않는다.</li>
+     *         </ol>
+     *     </li>
+     *     <li>
+     *         HttpEntity를 상속받은 객체
+     *         <ul>
+     *             <li>{@code RequestEntity<>}: HTTP Request Method, URL 정보가 추가 되어있다.</li>
+     *             <li>{@code ResponseEntity<>}: HTTP Response 상태 코드 설정이 가능하다.</li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     */
     @PostMapping("/v4/request-body-text")
     public HttpEntity<String> requestBodyTextV4(RequestEntity<String> httpEntity) {
 
@@ -140,7 +164,7 @@ public class RequestBodyStringController {
         String body = httpEntity.getBody();
         // url, method 사용 가능
 
-        return new ResponseEntity<>("response = " + body, HttpStatus.CREATED); // Body Data, 상태코드
+        return new ResponseEntity<>("response = " + body, HttpStatus.CREATED); // Body Data, 상태코드 201
     }
 
     @ResponseBody
