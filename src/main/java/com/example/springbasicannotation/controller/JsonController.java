@@ -20,6 +20,29 @@ import java.nio.charset.StandardCharsets;
  * <p>JSON은 @RestController 에서 가장 많이 사용되는 데이터 형식이다.</p>
  * <p>현재 대부분의 API는 Request, Response 모두 JSON형태로 통신한다.</p>
  * <p>JSON 형태로 Data를 전송할 때 Request Header의 content-type이 꼭 <b>application/json</b> 이여야 한다.</p>
+ * <hr>
+ * <h2>요약</h2>
+ * <ol>
+ *     <li>요청 데이터는 {@code @RequestBody}를 사용해서 바인딩 하면 된다.</li>
+ *     <li>
+ *         {@code @RequestBody}는 생략이 불가능하다.
+ *         <ul>
+ *             <li>{@code ModelAttribute}가 적용되기 때문</li>
+ *         </ul>
+ *     </li>
+ *     <li>
+ *         {@code HttpMessageConverter} 가 요청 응답 데이터를 모두 변환할 수 있다.
+ *         <ul>
+ *             <li>JSON은 {@code MappingJackson2HttpMessageConverter} 를 사용한다.</li>
+ *             <li>
+ *                 Request Header의 Content-type은 application/json 이어야 한다.
+ *                 <ul>
+ *                     <li>Header로 어떤 Converter가 동작할지 판별한다.</li>
+ *                 </ul>
+ *             </li>
+ *         </ul>
+ *     </li>
+ * </ol>
  */
 @RestController
 public class JsonController {
