@@ -102,11 +102,30 @@ public class JsonController {
         return "tutor = " + requestBodyTutor;
     }
 
+    /**
+     * <h2>@RequestBody는 생략할 수 없다.</h2>
+     * <ul>
+     *     <li>
+     *         생략하면 {@code ModelAttribute}가 된다.
+     *         <ul>
+     *             <li>요청 파라미터를 처리하도록 설정된다.</li>
+     *         </ul>
+     *     </li>
+     *     <li>
+     *         Request Header의 contentType은 꼭 application/json 이여야 한다.
+     *         <ul>
+     *             <li>위 설정 정보를 기반으로 MessageConverter가 실행된다.</li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     */
     @PostMapping("/v4/request-body-json")
     public String requestBodyJsonV4(Tutor tutor) { // @RequestBody 생략시 @ModelAttribute가 된다.
 
         Tutor requestBodyTutor = tutor;
 
+        // getName(): null 반환
+        // getAge(): 0 반환
         return "tutor.getName() = " + requestBodyTutor.getName() + " tutor.getAge() = " + requestBodyTutor.getAge();
     }
 
