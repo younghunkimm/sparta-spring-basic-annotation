@@ -129,6 +129,17 @@ public class JsonController {
         return "tutor.getName() = " + requestBodyTutor.getName() + " tutor.getAge() = " + requestBodyTutor.getAge();
     }
 
+    /**
+     * <h2>HttpEntity 사용</h2>
+     * <ul>
+     *     <li>
+     *         {@code HttpEntity<Tutor>}
+     *         <ul>
+     *             <li>Generic Type으로 Tutor가 지정되어 있기 때문에 해당 Class로 반환된다.</li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     */
     @PostMapping("/v5/request-body-json")
     public String requestBodyJsonV5(
             HttpEntity<Tutor> httpEntity
