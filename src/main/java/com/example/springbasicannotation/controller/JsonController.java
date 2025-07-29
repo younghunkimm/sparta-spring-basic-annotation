@@ -26,6 +26,20 @@ public class JsonController {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
+    /**
+     * <h2>HttpServletRequest 사용</h2>
+     *
+     * <ul>
+     *     <li>
+     *         Postman
+     *         <ul>
+     *             <li>Content-type 헤더 확인: application/json</li>
+     *         </ul>
+     *     </li>
+     *     <li>HttpServletRequest를 사용하여 HTTP Message Body 데이터를 Read하여 문자로 변환한다.</li>
+     *     <li>문자로 만들어진 JSON을 Jackson 라이브러리의 {@code objectMapper}를 사용하여 Object로 변환</li>
+     * </ul>
+     */
     @PostMapping("/v1/request-body-json")
     public void requestBodyJsonV1(
             HttpServletRequest request,
