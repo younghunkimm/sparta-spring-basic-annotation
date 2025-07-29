@@ -14,6 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * <h2>JSON</h2>
+ *
+ * <p>JSON은 @RestController 에서 가장 많이 사용되는 데이터 형식이다.</p>
+ * <p>현재 대부분의 API는 Request, Response 모두 JSON형태로 통신한다.</p>
+ * <p>JSON 형태로 Data를 전송할 때 Request Header의 content-type이 꼭 <b>application/json</b> 이여야 한다.</p>
+ */
 @RestController
 public class JsonController {
 
