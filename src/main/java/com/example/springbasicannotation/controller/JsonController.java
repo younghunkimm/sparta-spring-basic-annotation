@@ -72,6 +72,28 @@ public class JsonController {
         return "tutor.getName() = " + tutor.getName() + " tutor.getAge() = " + tutor.getAge();
     }
 
+    /**
+     * <h2>ObjectMapper 제거</h2>
+     *
+     * <ul>
+     *     <li>
+     *         {@code @RequestBody}
+     *         <ul>
+     *             <li>{@code RequestBody} 어노테이션을 사용하면 <b>Object를 Mapping</b>할 수 있다.</li>
+     *             <li>{@code HttpEntity<>}, {@code @RequestBody}를 사용하면 <b>HTTPMessageConverter</b>가 RequestBody의 Data를 개발자가 원하는 String이나 Object로 변환해준다.</li>
+     *             <li>
+     *                 JSON to Object의 Mapping 또한 가능하다.
+     *                 <ul>
+     *                     <li>
+     *                         <p>{@code MappingJackson2HttpMessageConverter}의 역할</p>
+     *                         <p>쉽게 설명하면 HTTP Message Converter가 ObjectMapper를 대신 실행한다.</p>
+     *                     </li>
+     *                 </ul>
+     *             </li>
+     *         </ul>
+     *     </li>
+     * </ul>
+     */
     @PostMapping("/v3/request-body-json")
     public String requestBodyJsonV3(@RequestBody Tutor tutor) {
 
