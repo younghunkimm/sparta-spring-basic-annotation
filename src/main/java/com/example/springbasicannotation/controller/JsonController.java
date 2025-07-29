@@ -57,6 +57,13 @@ public class JsonController {
         response.getWriter().write("tutor" + tutor);
     }
 
+    /**
+     * <h2>@RequestBody 사용</h2>
+     *
+     * <ul>
+     *     <li>{@code @RequestBody}를 사용하여 HTTP Request Body의 Data에 접근한다.</li>
+     * </ul>
+     */
     @PostMapping("/v2/request-body-json")
     public String requesBodyJsonV2(@RequestBody String requestBody) throws IOException {
 
