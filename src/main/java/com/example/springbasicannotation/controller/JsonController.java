@@ -150,6 +150,22 @@ public class JsonController {
         return "tutor.getName() = " + tutor.getName() + " tutor.getAge() = " + tutor.getAge();
     }
 
+    /**
+     * <h2>@ResponseBody</h2>
+     *
+     * <ul>
+     *     <li>class에 이미 @ResponseBody 어노테이션이 붙어있기 때문에 해당 메서드에서는 적지 않는다.</li>
+     *     <li>View를 조회하지 않고 Response Body에 Data를 입력해서 직접 반환한다.</li>
+     *     <li>
+     *         요청 뿐만이 아니라 응답에도 {@code HttpMessageConverter} 가 동작한다.
+     *         <ul>
+     *             <li>{@code MappingJackson2HttpMessageConverter} 적용</li>
+     *             <li>응답 객체인 Tutor가 JSON으로 변환되어 반환된다.</li>
+     *         </ul>
+     *     </li>
+     *     <li>HttpEntity를 사용해도 된다.</li>
+     * </ul>
+     */
     // @RestController = @Controller + @ResponseBody
     @PostMapping("/v6/request-body-json")
     public Tutor requestJson(@RequestBody Tutor tutor) {
